@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "m2eE9heqIDchYGVasVuhYhpdioa6+YiWurlV2FzEmnmVHp460fmHutARELvKCO/EgJ4RvjEwB+frkBu+AKim9A==",
+  "dgSpecHash": "oOzhX3+w6y8EjeqSFumAhzjT/cp3STs1wmDoZ1eKrj/f0p/se8hSR/nCD68Tjtp8JpTRMiH4BL9fry3OhlTUDA==",
   "success": true,
   "projectFilePath": "C:\\Users\\jarlynpolanco\\source\\BookStore-API\\BookStore-API\\BookStore-API.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\jarlynpolanco\\.nuget\\packages\\automapper\\9.0.0\\automapper.9.0.0.nupkg.sha512",
+    "C:\\Users\\jarlynpolanco\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\7.0.0\\automapper.extensions.microsoft.dependencyinjection.7.0.0.nupkg.sha512",
     "C:\\Users\\jarlynpolanco\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\3.1.3\\microsoft.aspnetcore.cryptography.internal.3.1.3.nupkg.sha512",
     "C:\\Users\\jarlynpolanco\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\3.1.3\\microsoft.aspnetcore.cryptography.keyderivation.3.1.3.nupkg.sha512",
     "C:\\Users\\jarlynpolanco\\.nuget\\packages\\microsoft.aspnetcore.diagnostics.entityframeworkcore\\3.1.3\\microsoft.aspnetcore.diagnostics.entityframeworkcore.3.1.3.nupkg.sha512",
