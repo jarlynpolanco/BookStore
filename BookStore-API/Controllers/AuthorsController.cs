@@ -22,8 +22,5 @@ namespace BookStore_API.Controllers
         {
             _authorRepository = authorRepository;
         }
-
-
-
     }
 }
