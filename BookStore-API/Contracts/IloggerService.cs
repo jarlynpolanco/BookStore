@@ -1,6 +1,6 @@
 ﻿namespace BookStore_API.Contracts
 {
-    public interface IloggerService
+    public interface ILoggerService
     {
         void LogInfo(string message);
         void LogWarn(string message);

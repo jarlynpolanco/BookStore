@@ -3,7 +3,7 @@ using NLog;
 
 namespace BookStore_API.Services
 {
-    public class LoggerService : IloggerService
+    public class LoggerService : ILoggerService
     {
         private static ILogger logger = LogManager.GetCurrentClassLogger();
 

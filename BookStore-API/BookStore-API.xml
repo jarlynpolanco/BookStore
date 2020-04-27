@@ -4,23 +4,10 @@
         <name>BookStore-API</name>
     </assembly>
     <members>
-        <member name="T:BookStore_API.Controllers.HomeController">
+        <member name="T:BookStore_API.Controllers.AuthorsController">
             <summary>
-            Ths is a test API controller
+            Endpoint used to interact with the Authors in the book store's database.
             </summary>
-        </member>
-        <member name="M:BookStore_API.Controllers.HomeController.Get">
-            <summary>
-            Get values
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:BookStore_API.Controllers.HomeController.Get(System.Int32)">
-            <summary>
-            Get a value
-            </summary>
-            <param name="id"></param>
-            <returns></returns>
         </member>
     </members>
 </doc>
