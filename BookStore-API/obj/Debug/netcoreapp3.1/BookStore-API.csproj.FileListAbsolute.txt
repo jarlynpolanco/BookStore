@@ -144,6 +144,13 @@ C:\Users\jarlynpolanco\source\BookStore-API\BookStore-API\bin\Debug\netcoreapp3.
 C:\Users\jarlynpolanco\source\BookStore-API\BookStore-API\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll
 C:\Users\jarlynpolanco\source\BookStore-API\BookStore-API\bin\Debug\netcoreapp3.1\AutoMapper.dll
 C:\Users\jarlynpolanco\source\BookStore-API\BookStore-API\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\jarlynpolanco\source\BookStore-API\BookStore-API\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\jarlynpolanco\source\BookStore-API\BookStore-API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\jarlynpolanco\source\BookStore-API\BookStore-API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+C:\Users\jarlynpolanco\source\BookStore-API\BookStore-API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+C:\Users\jarlynpolanco\source\BookStore-API\BookStore-API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\jarlynpolanco\source\BookStore-API\BookStore-API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+C:\Users\jarlynpolanco\source\BookStore-API\BookStore-API\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
 C:\Users\jarlynpolanco\source\BookStore-API\BookStore-API\obj\Debug\netcoreapp3.1\BookStore-API.csproj.CoreCompileInputs.cache
 C:\Users\jarlynpolanco\source\BookStore-API\BookStore-API\obj\Debug\netcoreapp3.1\BookStore-API.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\jarlynpolanco\source\BookStore-API\BookStore-API\obj\Debug\netcoreapp3.1\BookStore-API.MvcApplicationPartsAssemblyInfo.cache

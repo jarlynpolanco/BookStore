@@ -39,16 +39,18 @@ namespace BookStore_API.Services
             return author;
         }
 
+        public async Task<bool> Update(Author entity)
+        {
+            _dbContext.Authors.Update(entity);
+            return await Save();
+        }
+
         public async Task<bool> Save()
         {
             var changes = await _dbContext.SaveChangesAsync();
             return changes > 0;
         }
 
-        public async Task<bool> Update(Author entity)
-        {
-            _dbContext.Authors.Update(entity);
-            return await Save();
-        }
+        public async Task<bool> IsExist(int id) => await _dbContext.Authors.AnyAsync(x => x.Id == id);
     }
 }
