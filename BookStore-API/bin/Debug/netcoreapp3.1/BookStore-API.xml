@@ -9,5 +9,11 @@
             Endpoint used to interact with the Authors in the book store's database.
             </summary>
         </member>
+        <member name="M:BookStore_API.Controllers.AuthorsController.GetAuthors">
+            <summary>
+            Get all authors from database.
+            </summary>
+            <returns>List of Authors</returns>
+        </member>
     </members>
 </doc>
