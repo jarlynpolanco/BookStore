@@ -10,7 +10,7 @@ namespace BookStore_API.DTOs
 
         [Required]
         [DataType(DataType.Password)]
-        [StringLength(15, ErrorMessage = "Your password is limited to {2} to {1} characters", MinimumLength = 6)]
+        [StringLength(50, ErrorMessage = "Your password is limited to {2} to {1} characters", MinimumLength = 6)]
         public string Password { get; set; }
     }
 }

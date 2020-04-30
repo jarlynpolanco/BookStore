@@ -1,17 +1,14 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using BookStore_UI.Data;
 using BookStore_UI.Contracts;
 using BookStore_UI.Services;
+using Blazored.LocalStorage;
+using System.IdentityModel.Tokens.Jwt;
+using BookStore_UI.Providers;
+using Microsoft.AspNetCore.Components.Authorization;
 
 namespace BookStore_UI
 {
@@ -30,7 +27,12 @@ namespace BookStore_UI
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
+            services.AddBlazoredLocalStorage();
             services.AddHttpClient();
+            services.AddScoped<ApiAuthenticationStateProvider>();
+            services.AddScoped<AuthenticationStateProvider>(o => 
+                o.GetRequiredService<ApiAuthenticationStateProvider>());
+            services.AddScoped<JwtSecurityTokenHandler>();
             services.AddTransient<IAuthenticationRepository, AuthenticationRepository>();
         }
 
