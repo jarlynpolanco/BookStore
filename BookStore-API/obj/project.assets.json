@@ -9112,11 +9112,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jarlynpolanco\\source\\BookStore-API\\BookStore-API\\BookStore-API.csproj",
+      "projectUniqueName": "C:\\Users\\jarlynpolanco\\source\\BookStore\\BookStore-API\\BookStore-API.csproj",
       "projectName": "BookStore-API",
-      "projectPath": "C:\\Users\\jarlynpolanco\\source\\BookStore-API\\BookStore-API\\BookStore-API.csproj",
+      "projectPath": "C:\\Users\\jarlynpolanco\\source\\BookStore\\BookStore-API\\BookStore-API.csproj",
       "packagesPath": "C:\\Users\\jarlynpolanco\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jarlynpolanco\\source\\BookStore-API\\BookStore-API\\obj\\",
+      "outputPath": "C:\\Users\\jarlynpolanco\\source\\BookStore\\BookStore-API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"

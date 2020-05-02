@@ -34,12 +34,12 @@
             </NotAuthorized>
         </AuthorizeView>
         <li class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+            <NavLink class="nav-link" href="/home" Match="NavLinkMatch.All">
                 <span class="oi oi-home" aria-hidden="true"></span> Home
             </NavLink>
         </li>
         <li class="nav-item px-3">
-            <NavLink class="nav-link" href="authors">
+            <NavLink class="nav-link" href="authors/">
                 <span class="oi oi-plus" aria-hidden="true"></span> Authors
             </NavLink>
         </li>
@@ -51,14 +51,14 @@
         <AuthorizeView Roles="Administrator">
             <li class="nav-item px-3">
                 <NavLink class="nav-link" href="books">
-                    <span class="oi oi-plus" aria-hidden="true"></span> ADMIN LINK
+                    <span class="oi oi-plus" aria-hidden="true"></span> <b>ROLE:</b> ADMINISTRATOR
                 </NavLink>
             </li>
         </AuthorizeView>
         <AuthorizeView Roles="Customer">
             <li class="nav-item px-3">
                 <NavLink class="nav-link" href="books">
-                    <span class="oi oi-plus" aria-hidden="true"></span> CUSTOMER LINK
+                    <span class="oi oi-plus" aria-hidden="true"></span> <b>ROLE:</b> CUSTOMER
                 </NavLink>
             </li>
         </AuthorizeView>

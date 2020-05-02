@@ -31,7 +31,7 @@ namespace BookStore_UI.Services
             var request = new HttpRequestMessage(HttpMethod.Post, Endpoints.LoginEndpoint)
             {
                 Content = new StringContent(JsonConvert.SerializeObject(user),
-                Encoding.UTF8, "application/json")
+                    Encoding.UTF8, "application/json")
             };
 
             var client = _client.CreateClient();
