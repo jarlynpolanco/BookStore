@@ -2,14 +2,14 @@
 
 @inject IAuthorRepository _authorRepo
 @inject NavigationManager _navManager
+@inject IToastService _toastService
 
-<h3>Edit Author</h3>
-
+<h3 class="card-title">Edit Author</h3>
+<hr />
+<br />
 @if (isFailed)
 {
-    <div class="alert alert-danger">
-        <p>Something went wrong with the modification attempt</p>
-    </div>
+    _toastService.ShowError("Something went wrong with the modification attempt");
 }
 
 @if (Model == null)
@@ -34,12 +34,11 @@ else
             <InputTextArea @bind-Value="Model.Bio" class="form-control" id="bio" />
         </div>
         <button class="btn btn-primary" type="submit">
-            <span class="oi oi-pencil">
-            </span>Submit Changes
+            <span class="oi oi-pencil"></span>Submit Changes
         </button>
         <button @onclick="BackToList" class="btn btn-outline-secondary">
-            Back To List
             <span class="oi oi-media-skip-backward"></span>
+            Back To List
         </button>
     </EditForm>
 }
@@ -62,6 +61,7 @@ else
 
         if (isSuccess)
         {
+            _toastService.ShowSuccess("Author's updated successfully");
             BackToList();
         }
         else

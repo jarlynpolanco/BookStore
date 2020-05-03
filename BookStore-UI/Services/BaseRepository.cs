@@ -27,7 +27,8 @@ namespace BookStore_UI.Services
             if (obj == null)
                 return false;
 
-            request.Content = new StringContent(JsonConvert.SerializeObject(obj));
+            request.Content = new StringContent(JsonConvert.SerializeObject(obj),
+               Encoding.UTF8, "application/json");
 
             var client = _client.CreateClient();
             client.DefaultRequestHeaders.Authorization =

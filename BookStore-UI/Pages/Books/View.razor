@@ -1,0 +1,111 @@
+﻿@page "/books/view/{Id}"
+
+@inject IBookRepository _bookRepo
+@inject NavigationManager _navManager
+
+<h3>View Book Details</h3>
+
+@if (string.IsNullOrWhiteSpace(Id) || int.Parse(Id) < 1)
+{
+    <ErrorMessage Message="Invalid selection. Please try again" />
+}
+else if (Model == null)
+{
+    <LoadingMessage Message="Loading book details" />
+}
+else
+{
+    <div class="row">
+        <div class="col-md-6">
+            <table class="table table-responsive">
+                <tr>
+                    <td>
+                        <strong>Title</strong>
+                    </td>
+                    <td>@Model.Title</td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>Author</strong>
+                    </td>
+                    <td>
+                        @if (Model.Author == null)
+                        {
+                            <span class="text-muted">No author recorded</span>
+                        }
+                        else
+                        {
+                            <a href="/authors/view/@Model.AuthorId"> @Model.Author.Firstname @Model.Author.Lastname</a>
+                        }
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>Summary</strong>
+                    </td>
+                    <td>@Model.Summary</td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>Published Year</strong>
+                    </td>
+                    <td>@Model.Year</td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>ISBN</strong>
+                    </td>
+                    <td>@Model.Isbn</td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-md-4">
+            <img src="uploads/@Model.Image" style="height:300px; width:300px" />
+            <h3 class="text-center text-info">@Model.Price</h3>
+        </div>
+    </div>
+
+}
+
+<button @onclick="GoToEdit" class="btn btn-outline-warning">
+    <span class="oi oi-pencil"></span>
+    Edit Book
+</button>
+
+<button @onclick="GoToDelete" class="btn btn-outline-danger">
+    <span class="oi oi-circle-x"></span>
+    Delete Book
+</button>
+
+<button @onclick="BackToList" class="btn btn-outline-secondary" type="submit">
+    <span class="oi oi-media-skip-backward"></span>
+    Back to list
+</button>
+
+@code {
+    [Parameter]
+    public string Id { get; set; }
+
+    private Book Model = new Book();
+
+    protected override async Task OnInitializedAsync()
+    {
+        Model = await _bookRepo.Get(Endpoints.BooksEndpoint, int.Parse(Id));
+    }
+
+    public void GoToEdit()
+    {
+        _navManager.NavigateTo($"/books/edit/{Model.Id}");
+    }
+
+    public void GoToDelete()
+    {
+        _navManager.NavigateTo($"/books/delete/{Model.Id}");
+    }
+
+    private void BackToList()
+    {
+        _navManager.NavigateTo("/books/");
+    }
+
+}

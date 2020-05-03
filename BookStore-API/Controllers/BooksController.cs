@@ -216,7 +216,7 @@ namespace BookStore_API.Controllers
 
                 var book = await _bookRepository.FindById(id);
                 var isSuccess = await _bookRepository.Delete(book);
-                if (isSuccess)
+                if (!isSuccess)
                 {
                     return InternalServerError($"{location}: Delete failed");
                 }

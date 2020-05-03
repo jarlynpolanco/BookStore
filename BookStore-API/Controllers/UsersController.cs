@@ -5,12 +5,14 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using BookStore_API.Config;
 using BookStore_API.Contracts;
 using BookStore_API.DTOs;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 
 namespace BookStore_API.Controllers
@@ -21,16 +23,16 @@ namespace BookStore_API.Controllers
     {
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly UserManager<IdentityUser> _userManager;
+        private readonly IOptions<AppSettings> _appSettings;
         private readonly ILoggerService _logger;
-        private IConfiguration _config;
 
         public UsersController(SignInManager<IdentityUser> signInManager, UserManager<IdentityUser> userManager,
-            ILoggerService loggerService, IConfiguration config) 
+            IOptions<AppSettings> appSettings, ILoggerService loggerService) 
         {
             _signInManager = signInManager;
             _userManager = userManager;
             _logger = loggerService;
-            _config = config;
+            _appSettings = appSettings;
         }
 
         /// <summary>
@@ -111,7 +113,7 @@ namespace BookStore_API.Controllers
 
         private async Task<string> GenerateJSONWebToken(IdentityUser user) 
         {
-            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
+            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_appSettings.Value.Jwt.Key));
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
             var claims = new List<Claim>
             {
@@ -121,11 +123,11 @@ namespace BookStore_API.Controllers
             };
             var roles = await _userManager.GetRolesAsync(user);
             claims.AddRange(roles.Select(x => new Claim(ClaimsIdentity.DefaultRoleClaimType, x)));
-            var token = new JwtSecurityToken(_config["Jwt:Issuer"], 
-                _config["Jwt:Issuer"],
+            var token = new JwtSecurityToken(_appSettings.Value.Jwt.Issuer,
+                _appSettings.Value.Jwt.Issuer,
                 claims, 
                 null,
-                expires: DateTime.Now.AddMinutes(5), 
+                expires: DateTime.Now.AddMinutes(_appSettings.Value.Jwt.ExpirationTime), 
                 signingCredentials: credentials
                 );
             return new JwtSecurityTokenHandler().WriteToken(token);

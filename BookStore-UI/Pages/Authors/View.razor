@@ -51,9 +51,21 @@ else
 </div>
 }
 <br />
-<button @onclick="BackToList" class="btn btn-outline-secondary">Back To List
+
+<button @onclick="GoToEdit" class="btn btn-outline-warning">
+    <span class="oi oi-pencil"></span>
+    Edit Author
+</button>
+
+<button @onclick="GoToDelete" class="btn btn-outline-danger">
+    <span class="oi oi-circle-x"></span>
+    Delete Author
+</button>
+
+<button @onclick="BackToList" class="btn btn-outline-secondary">
     <span class="oi oi-media-skip-backward"></span>
-    </button>
+    Back To List
+</button>
 
 @code {
     [Parameter]
@@ -66,7 +78,17 @@ else
         Model = await _authorRepo.Get(Endpoints.AuthorsEndpoint, int.Parse(this.Id));
     }
 
-    private void BackToList() 
+    public void GoToEdit()
+    {
+        _navManager.NavigateTo($"/authors/edit/{Model.Id}");
+    }
+
+    public void GoToDelete()
+    {
+        _navManager.NavigateTo($"/authors/delete/{Model.Id}");
+    }
+
+    private void BackToList()
     {
         _navManager.NavigateTo("/authors/");
     }

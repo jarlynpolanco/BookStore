@@ -4,44 +4,60 @@
 @inject IAuthorRepository _authorRepo
 @inject NavigationManager _navManager
 
-<h3>Index</h3>
-
+<h3 class="card-title">Index</h3>
+<hr />
+<br />
 @if (Model == null)
 {
     <LoadingMessage Message="Loading Authors" />
 }
 else
 {
-    <table class="table table-responsive">
-        <thead>
-            <tr>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var author in Model)
-            {
+<AuthorizeView Roles="Administrator">
+    <a href="/authors/create" class="btn btn-primary">
+        <span class="oi oi-plus"></span>
+        Create new author
+    </a>
+</AuthorizeView>
+    
+    @if (Model.Count == 0)
+    {
+        <LoadingMessage Message="There are not authors in the data store. Click 'Create author' to Begin." />
+    }
+    else
+    {
+        <table class="table table-responsive">
+            <thead>
                 <tr>
-                    <td>@author.Firstname</td>
-                    <td>@author.Lastname</td>
-                    <td>
-                        <a href="/authors/view/@author.Id" class="btn btn-primary">
-                            <span class="oi oi-book"></span>
-                        </a>
-                        <a href="/authors/edit/@author.Id" class="btn btn-warning">
-                            <span class="oi oi-pencil"></span>
-                        </a>
-                        <a class="btn btn-danger">
-                            <span class="oi oi-delete"></span>
-                        </a>
-                    </td>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Actions</th>
                 </tr>
-            }
-        </tbody>
-
-    </table>
+            </thead>
+            <tbody>
+                @foreach (var author in Model)
+                {
+                    <tr>
+                        <td>@author.Firstname</td>
+                        <td>@author.Lastname</td>
+                        <td>
+                            <a href="/authors/view/@author.Id" class="btn btn-primary">
+                                <span class="oi oi-book"></span>
+                            </a>
+                            <AuthorizeView Roles="Administrator">
+                                <a href="/authors/edit/@author.Id" class="btn btn-warning">
+                                    <span class="oi oi-pencil"></span>
+                                </a>
+                                <a href="/authors/delete/@author.Id" class="btn btn-danger">
+                                    <span class="oi oi-delete"></span>
+                                </a>
+                            </AuthorizeView>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
 }
 
 @code {

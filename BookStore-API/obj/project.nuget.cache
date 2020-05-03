@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "TCeBklBsh5KYAi6yJYTGAsYGrOPcJ47imYWg1/lFxjRJCeSFoHIG35WTR8YKJxIf1BD+PYKEFk5q/6QwO81eBg==",
+  "dgSpecHash": "/ptRhDQckos8IZTbRTm8MwxzIfgKr4W4gLjRHWChCd32WZRp6/dq02tayS5C33WkIAxyIUpZiLiWpq5wKofBxw==",
   "success": true,
   "projectFilePath": "C:\\Users\\jarlynpolanco\\source\\BookStore\\BookStore-API\\BookStore-API.csproj",
   "expectedPackageFiles": [
@@ -13,6 +13,8 @@
     "C:\\Users\\jarlynpolanco\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\jarlynpolanco\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\3.1.3\\microsoft.aspnetcore.identity.entityframeworkcore.3.1.3.nupkg.sha512",
     "C:\\Users\\jarlynpolanco\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\3.1.3\\microsoft.aspnetcore.identity.ui.3.1.3.nupkg.sha512",
+    "C:\\Users\\jarlynpolanco\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\3.1.3\\microsoft.aspnetcore.jsonpatch.3.1.3.nupkg.sha512",
+    "C:\\Users\\jarlynpolanco\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\3.1.3\\microsoft.aspnetcore.mvc.newtonsoftjson.3.1.3.nupkg.sha512",
     "C:\\Users\\jarlynpolanco\\.nuget\\packages\\microsoft.aspnetcore.razor\\2.2.0\\microsoft.aspnetcore.razor.2.2.0.nupkg.sha512",
     "C:\\Users\\jarlynpolanco\\.nuget\\packages\\microsoft.aspnetcore.razor.language\\3.1.0\\microsoft.aspnetcore.razor.language.3.1.0.nupkg.sha512",
     "C:\\Users\\jarlynpolanco\\.nuget\\packages\\microsoft.aspnetcore.razor.runtime\\2.2.0\\microsoft.aspnetcore.razor.runtime.2.2.0.nupkg.sha512",
@@ -69,6 +71,7 @@
     "C:\\Users\\jarlynpolanco\\.nuget\\packages\\microsoft.win32.registry\\4.5.0\\microsoft.win32.registry.4.5.0.nupkg.sha512",
     "C:\\Users\\jarlynpolanco\\.nuget\\packages\\netstandard.library\\1.6.1\\netstandard.library.1.6.1.nupkg.sha512",
     "C:\\Users\\jarlynpolanco\\.nuget\\packages\\newtonsoft.json\\12.0.2\\newtonsoft.json.12.0.2.nupkg.sha512",
+    "C:\\Users\\jarlynpolanco\\.nuget\\packages\\newtonsoft.json.bson\\1.0.2\\newtonsoft.json.bson.1.0.2.nupkg.sha512",
     "C:\\Users\\jarlynpolanco\\.nuget\\packages\\nlog\\4.6.8\\nlog.4.6.8.nupkg.sha512",
     "C:\\Users\\jarlynpolanco\\.nuget\\packages\\nlog.extensions.logging\\1.6.2\\nlog.extensions.logging.1.6.2.nupkg.sha512",
     "C:\\Users\\jarlynpolanco\\.nuget\\packages\\nuget.frameworks\\4.7.0\\nuget.frameworks.4.7.0.nupkg.sha512",

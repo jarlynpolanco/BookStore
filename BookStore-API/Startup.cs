@@ -17,6 +17,9 @@ using BookStore_API.Mappings;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using BookStore_API.Config;
+using Microsoft.Extensions.Options;
+using System.Linq;
 
 namespace BookStore_API
 {
@@ -32,9 +35,12 @@ namespace BookStore_API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<AppSettings>(Configuration.GetSection(nameof(AppSettings)));
+            var appSettings = services.BuildServiceProvider().GetRequiredService<IOptions<AppSettings>>();
+
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(
-                    Configuration.GetConnectionString("BookStoreDb")));
+                options.UseSqlServer(appSettings.Value.ConnectionStrings
+                .SingleOrDefault(x => x.Name == "BookStoreDb").Value));
             services.AddDefaultIdentity<IdentityUser>()
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
@@ -58,9 +64,10 @@ namespace BookStore_API
                         ValidateAudience = true,
                         ValidateLifetime = true,
                         ValidateIssuerSigningKey = true,
-                        ValidIssuer = Configuration["Jwt:Issuer"],
-                        ValidAudience = Configuration["Jwt:Issuer"],
-                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"]))
+                        ValidIssuer = appSettings.Value.Jwt.Issuer,
+                        ValidAudience = appSettings.Value.Jwt.Issuer,
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8
+                            .GetBytes(appSettings.Value.Jwt.Key))
                     };
                 });
 
@@ -79,7 +86,8 @@ namespace BookStore_API
             services.AddScoped<IAuthorRepository, AuthorRepository>();
             services.AddScoped<IBookRepository, BookRepository>();
 
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson(options =>
+                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
